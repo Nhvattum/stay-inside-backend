@@ -4,9 +4,9 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const EventSchema = new Schema ({
-    postedBy: [{
-        type: mongoose.Schema.Types.ObjectId, ref: 'users'
-    }],
+    postedBy: {
+        type: mongoose.Schema.Types.ObjectId, ref: User
+    },
     title: {
         type: String,
         required: true
@@ -19,7 +19,8 @@ const EventSchema = new Schema ({
     },
     // playlistID goes here type: Int ref
     comments: [{
-        type: mongoose.Schema.Types.ObjectId, ref: 'comments'
+        body: string,
+        by: mongoose.Schema.Types.ObjectId, ref: Comment
     }]
 })
 

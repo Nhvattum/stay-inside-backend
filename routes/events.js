@@ -7,12 +7,13 @@ const Event = require('../models/Event')
 // API ROUTES
 
 // GET -- post events to home page
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
     Event.find()
+        .populate("postedBy")
         .then(events => {
             res.send(events)
         }).catch(error => {
-            res.send({message: 'Server error'})
+            res.send({message: "Server error"})
             console.error(error)
         })
 })
