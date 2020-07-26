@@ -16,7 +16,7 @@ const EventSchema = new Schema ({
     },
     description: {
         type: String
-    },
+    }
     // playlistID goes here type: Int ref
     // comments: {
     //     type: mongoose.Schema.Types.ObjectId, ref: Comment

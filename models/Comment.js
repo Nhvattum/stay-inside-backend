@@ -13,7 +13,7 @@ const CommentSchema = new Schema({
   },
   eventId: {
     type: String,
-    required: true,
+    required: false,
   },
   date: {
     type: Date,

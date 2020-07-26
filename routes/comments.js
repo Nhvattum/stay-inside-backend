@@ -4,9 +4,9 @@ const Comment = require('../models/Comment')
 
 
 // Show
-router.get('/:id', (req, res) => {
+router.get('/', (req, res) => {
 
-    db.Comment.findById(req.params.id)
+    Comment.find()
       .then(comments => {
         res.send(comments)
       })
@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
   console.log(req.body)
   console.log('🏈')
   // res.send(req.body)
-  db.Comment.create(req.body)
+  Comment.create(req.body)
     .then(newComment => {
       res.send(newComment)
     })
@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
 // Update
 router.put('/:id', (req, res) => {
   
-  db.Comment.findOneAndUpdate(
+  Comment.findOneAndUpdate(
     {_id: req.params.id},
     req.body,
     { new: true }
@@ -45,7 +45,7 @@ router.put('/:id', (req, res) => {
 // Delete
 router.delete('/:id', (req, res) => {
   
-  db.Comment.findOneAndDelete({_id: req.params.id })
+  Comment.findOneAndDelete({_id: req.params.id })
     .then(deleteComment => {
       console.log(deleteComment)
       res.send({message: 'Successful Deletion'})
