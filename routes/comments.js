@@ -1,11 +1,22 @@
 require('dotenv').config()
 const express = require('express')
 const router = express.Router()
-const Comment = require('../controllers/comment')
+const Comment = require('../models/Comment')
 
 
 // Index
-router.get('/', Comment.index)
+router.get('/', async function index(req, res) {
+
+  try {
+      const comments = await Comment.find()
+          .populate('postedBy', 'name')
+      res.json(comments)
+  }
+  catch(error) {
+      console.log(error)
+      res.sendStatus(500)
+  }
+})
   
 // Create
 router.post('/', (req, res) => {

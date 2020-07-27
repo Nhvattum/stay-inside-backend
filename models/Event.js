@@ -1,3 +1,4 @@
+  
 // Event Schema
 // playlistID: integer
 const mongoose = require('mongoose')
@@ -26,4 +27,4 @@ const EventSchema = new Schema ({
     }]
 })
 
-module.exports = Event = mongoose.model('Event', EventSchema)postedBy
+module.exports = Event = mongoose.model('Event', EventSchema)

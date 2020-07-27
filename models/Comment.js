@@ -1,3 +1,4 @@
+  
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const { ObjectId } = mongoose.Types
@@ -7,7 +8,7 @@ const CommentSchema = new Schema ({
   postedBy: {
     type: ObjectId,
     ref: 'User',
-    required: true,
+    required: false,
   },
   content: {
     type: String,
