@@ -9,7 +9,8 @@ const Event = require('../models/Event')
 // GET -- post events to home page
 router.get("/", (req, res) => {
     Event.find()
-        .populate("postedBy")
+        // .populate('postedBy')
+        .populate('comments')
         .then(events => {
             res.send(events)
         }).catch(error => {
