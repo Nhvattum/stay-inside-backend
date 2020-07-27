@@ -16,6 +16,21 @@ router.get('/test', function(req, res) {
     res.json({msg: 'Users endpoint working A okay'})
 })
 
+// STRETCH: SEARCH FOR USERS VIA SEARCH BAR
+router.get('/search', (req, res) => {
+    User.findOne({name: req.body.name})
+    .then(searchedUser => {
+        if (!searchedUser) {
+            res.send('no user by that name, please try again')
+        } else {
+            res.send(searchedUser)
+        }
+    }).catch(error => {
+        res.send({message: 'Server error, please try again'})
+        console.log(error)
+    })
+})
+
 // GET api user already registered
 router.post('/register', function(req, res) {
     
